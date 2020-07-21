@@ -6,7 +6,7 @@ environment:
     secure: N9lPvkMDUEXL9EfpIw3uRKrRrQH0kT/NH05krNJCX6Ch8Hl66YtVL7ymBI0//Zqr
 
 # Allow WMF5 (i.e. PowerShellGallery functionality)
-os: WMF 5
+os: Visual Studio 2019
 
 # Skip on updates to the readme.
 # We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
