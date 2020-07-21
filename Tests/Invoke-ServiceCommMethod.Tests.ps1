@@ -11,8 +11,8 @@ Describe 'Invoke-ServiceCommMethod' {
     }
 
     It 'Invokes the given method' {
-        Mock Invoke-WebRequest { return $MessageMocks }
-        Mock ConvertFrom-Json { return $MessageMocks.Content } 
+        Mock Invoke-WebRequest { return $MessageMocks } -ModuleName 'PSServiceComm'
+        Mock ConvertFrom-Json { return $MessageMocks.Content } -ModuleName 'PSServiceComm'
 
         (Invoke-ServiceCommMethod -Method '/ServiceComms/Messages').Count | Should -Be $MessageMocks.Content.Value.Count
     }
