@@ -14,7 +14,7 @@ Describe 'Invoke-ServiceCommMethod' {
         Mock Invoke-WebRequest { return $MessageMocks }
         Mock ConvertFrom-Json { return $MessageMocks.Content } 
 
-        (Invoke-ServiceCommMethod -Method '/ServiceComms/Messages').Count | Should -Be 5
+        (Invoke-ServiceCommMethod -Method '/ServiceComms/Messages').Count | Should -Be $MessageMocks.Content.Value.Count
     }
 
 }
