@@ -13,12 +13,15 @@ InModuleScope 'PSServiceComm' {
                 ClientId     = [GUID]::Empty
                 ClientSecret = 'SecureString' | ConvertTo-SecureString -AsPlainText -Force
             }
+
+            Mock Get-MsalToken {} 
         }
 
-        It 'Invokes the given method' {
-            Mock Get-MsalToken {}
-                        
-            Get-ServiceCommToken @connectionArgs | Should -InvokeVerifiable Get-MsalToken
+        It 'Should try to aquire a token' {
+
+            Get-ServiceCommToken @connectionArgs 
+            
+            Should -InvokeVerifiable Get-MsalToken
         }
     }
 }

@@ -21,4 +21,8 @@ Import-Module Psake, BuildHelpers
 Set-BuildEnvironment -ErrorAction SilentlyContinue
 
 Invoke-psake -buildFile $ENV:BHProjectPath\psake.ps1 -taskList $Task -nologo
-exit ( [int]( -not $psake.build_success ) )
+if (-not $psake.build_success)
+{
+   # Terminate the script to fail the build
+   exit 1
+}

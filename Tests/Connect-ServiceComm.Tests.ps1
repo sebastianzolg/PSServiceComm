@@ -28,7 +28,7 @@ InModuleScope 'PSServiceComm' {
             $TenantId | Should -Be $connectionArgs.TenantId
         } 
 
-        It 'Should try to aquire a token' {
+        It 'Should try to connect' {
             Mock Get-ServiceCommToken {}
 
             Connect-ServiceComm @connectionArgs | Should -Invoke Get-ServiceCommToken -Exactly 1
