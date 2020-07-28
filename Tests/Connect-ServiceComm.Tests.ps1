@@ -27,5 +27,12 @@ InModuleScope 'PSServiceComm' {
             $BaseUrl | Should -Be $connectionArgs.BaseUrl
             $TenantId | Should -Be $connectionArgs.TenantId
         } 
+
+        It 'Should try to aquire a token' {
+            Mock Get-ServiceCommToken {}
+
+            Connect-ServiceComm @connectionArgs | Should -Invoke Get-ServiceCommToken -Exactly 1
+
+        } 
     }
 }
