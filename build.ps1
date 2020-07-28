@@ -16,7 +16,6 @@ Install-Module Psake -Scope CurrentUser
 Install-Module PSDeploy -Scope CurrentUser
 Install-Module BuildHelpers -AllowClobber -Scope CurrentUser
 Install-Module Pester -RequiredVersion 5.0.2 -Scope CurrentUser -SkipPublisherCheck
-Install-Module "MSAL.PS" -Scope CurrentUser -AllowClobber
 Import-Module Psake, BuildHelpers
 
 Set-BuildEnvironment -ErrorAction SilentlyContinue
