@@ -51,7 +51,7 @@ $messages = Get-ServiceCommMessages
 $messages | Where-Object { $_.IsUpdated() }
 ```
 
-The API and its documentation don't provide a proper explanation on how to detect updated messages. We consider Messages as updated when the following criteria are met:
+The API and its documentation don't provide a proper explanation on how to detect updated messages. We consider Messages as updated when the following conditions are met:
 
 - `Title contains '(Updated)'`
 - `LastUpdatedTime > StartTime + 1 Hour`
